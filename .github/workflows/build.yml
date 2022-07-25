@@ -1,0 +1,30 @@
+name: Build Mega SDK C++ Linux x86_64
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Upgrade and Download necessary files for build..
+        run: bash setup.sh
+
+      - name: build Mega SDK ..
+        run: bash build.sh
+
+      - name: tar the SDK
+        run: cd ~/home && tar -zcvf megasdk.tar.gz /home/runner/home/sdk/ && ls && pwd
+ 
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          draft: false
+          prerelease: false
+          title: "MegaSDK_${{ secrets.MEGA_SDK_VERSION }}_x86_64_linux"
+          files: |
+            /home/runner/home/*.tar.gz
