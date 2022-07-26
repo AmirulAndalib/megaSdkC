@@ -28,3 +28,4 @@ jobs:
           title: "MegaSDK_${{ secrets.MEGA_SDK_VERSION }}_x86_64_linux"
           files: |
             /home/runner/home/*.tar.gz
+            /home/runner/home/sdk/bindings/python/*.whl
