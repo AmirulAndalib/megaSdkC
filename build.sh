@@ -1,5 +1,5 @@
 export PYTHONWARNINGS=ignore
-export MEGA_SDK_VERSION="3.12.3"
+export MEGA_SDK_VERSION="4.0.2"
 git clone https://github.com/meganz/sdk.git --depth=1 -b v$MEGA_SDK_VERSION ~/home/sdk \
 && cd ~/home/sdk && rm -rf .git \
 && autoupdate -fIv && ./autogen.sh \
