@@ -1,4 +1,4 @@
-name: Build Mega SDK C++ Linux x86_64
+name: Build Mega SDK C++
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
         run: bash build.sh
 
       - name: tar the SDK
-        run: cd ~/home && tar -zcvf megasdk.tar.gz /home/runner/home/sdk/ && ls && pwd
+        run: cd /home/runner/home && tar -zcvf megasdk.tar.gz sdk && ls && pwd
  
       - uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -28,7 +28,7 @@ jobs:
           automatic_release_tag: "latest"
           draft: false
           prerelease: false
-          title: "MegaSDK_${{ secrets.MEGA_SDK_VERSION }}_x86_64_linux"
+          title: "MegaSDKC++_${{ secrets.MEGA_SDK_VERSION }}Binaries-linux"
           files: |
             /home/runner/home/*.tar.gz
             /home/runner/home/sdk/bindings/python/dist/*.whl
