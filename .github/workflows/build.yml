@@ -20,7 +20,7 @@ jobs:
         run: bash build.sh
 
       - name: tar the SDK
-        run: cd ~/home/sdk
+        run: cd "~/home/sdk/"
              tar -zcvf megasdk.tar.gz
              ls && pwd
              mkdir ~/home/releases/
