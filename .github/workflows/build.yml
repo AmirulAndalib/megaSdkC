@@ -21,10 +21,10 @@ jobs:
 
       - name: tar the SDK
         run: cd "~/home/sdk/"
-             tar -zcvf megasdk.tar.gz
-             ls && pwd
-             mkdir ~/home/releases/
-             cp ~/home/sdk/megasdk.tar.gz ~/home/releases/
+             && tar -zcvf megasdk.tar.gz
+             && ls && pwd
+             && mkdir ~/home/releases/
+             && cp ~/home/sdk/megasdk.tar.gz ~/home/releases/
        
       - name: mv wheel
         run: mv ~/home/sdk/bindings/python/dist/*.whl MegaSdkC-py2.py3-none-any.whl
