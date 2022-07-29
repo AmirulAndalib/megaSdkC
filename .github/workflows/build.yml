@@ -20,15 +20,15 @@ jobs:
         run: bash build.sh
 
       - name: tar the SDK
-        run: cd /home/runner/home/sdk 
-             tar -zcvf megasdk.tar.gz 
-             ls && pwd
-             mkdir /home/runner/home/releases/
-             cp /home/runner/home/sdk/megasdk.tar.gz /home/runner/home/releases/
+        run: cd /home/runner/home/sdk \
+             && tar -zcvf megasdk.tar.gz \
+             && ls && pwd \
+             && mkdir /home/runner/home/releases/ \
+             && cp /home/runner/home/sdk/megasdk.tar.gz /home/runner/home/releases/
        
       - name: mv wheel
-        run: mv /home/runner/home/sdk/bindings/python/dist/*.whl MegaSdkC-py2.py3-none-any.whl
-             cp /home/runner/home/sdk/bindings/python/dist/*.whl /home/runner/home/releases
+        run: mv /home/runner/home/sdk/bindings/python/dist/*.whl MegaSdkC-py2.py3-none-any.whl \
+             && cp /home/runner/home/sdk/bindings/python/dist/*.whl /home/runner/home/releases
  
       - uses: marvinpinto/action-automatic-releases@latest
         with:
