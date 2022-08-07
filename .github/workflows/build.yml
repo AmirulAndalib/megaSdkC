@@ -31,4 +31,3 @@ jobs:
           title: "MegaSDKC++-Python-wheel"
           files: |
             /home/runner/home/*.tar.gz
-            /home/runner/home/sdk/bindings/python/dist/*.whl
